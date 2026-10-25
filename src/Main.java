@@ -1,13 +1,31 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+public class Main {
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+    public static void main(String[] args) {
+        CakeOrder order = new CakeOrder(
+                10000,
+                5,
+                new RegularPricingStrategy()
+        );
+
+        System.out.println("Cake Shop - Strategy Pattern");
+        System.out.println("Price per cake: 10000 KZT");
+        System.out.println("Quantity: 5");
+        System.out.println();
+
+        System.out.println(
+                "Regular price: " + order.calculateTotal() + " KZT"
+        );
+
+        order.setPricingStrategy(new BulkPricingStrategy());
+
+        System.out.println(
+                "Bulk price: " + order.calculateTotal() + " KZT"
+        );
+
+        order.setPricingStrategy(new HolidayPricingStrategy());
+
+        System.out.println(
+                "Holiday price: " + order.calculateTotal() + " KZT"
+        );
+    }
 }

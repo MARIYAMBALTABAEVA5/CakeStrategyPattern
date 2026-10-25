@@ -1,4 +1,7 @@
-package PACKAGE_NAME;
+public class RegularPricingStrategy implements PricingStrategy {
 
-public class RegularPricingStrategy {
+    @Override
+    public int calculateTotal(int unitPrice, int quantity) {
+        return unitPrice * quantity;
+    }
 }

@@ -1,4 +1,4 @@
-package PACKAGE_NAME;
-
 public interface PricingStrategy {
+
+    int calculateTotal(int unitPrice, int quantity);
 }
